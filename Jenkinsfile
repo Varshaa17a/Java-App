@@ -14,10 +14,10 @@ pipeline {
   steps{sh 'mvn clean compile'
   }}
   when { expression {env.ENV=='prod'}}
-  stage('Prod Stage using when'){}}
+  stage('Prod Stage using when'){}
   
   when { expression {env.ENV=='dev'}}
-  stage('dev Stage using when'){}}
+  stage('dev Stage using when'){}
   
   // stage('Create Docker Image and push it' ){
   // steps{ sh 'docker login -u -p'

@@ -33,7 +33,7 @@ pipeline {
   // stage('sonarqube'){}
   // stage('owasp check'){}
   // stage('EKS'){}
-  }
+  
   
  
 

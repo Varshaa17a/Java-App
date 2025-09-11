@@ -17,16 +17,16 @@ pipeline {
   stage('Prod Stage using when'){}}
   
   when {ENV 'dev'}
-  stage('dev Stage using when'){}}
+  // stage('dev Stage using when'){}}
   
-  stage('Create Docker Image and push it' ){
-  steps{ sh 'docker login -u -p'
-     sh ' docker build .'
-	 sh ' docker push'}}
+  // stage('Create Docker Image and push it' ){
+  // steps{ sh 'docker login -u -p'
+  //    sh ' docker build .'
+	 // sh ' docker push'}}
 	 
-  stage('sonarqube'){}
-  stage('owasp check'){}
-  stage('EKS'){}
+  // stage('sonarqube'){}
+  // stage('owasp check'){}
+  // stage('EKS'){}
   }
   
  

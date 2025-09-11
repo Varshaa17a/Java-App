@@ -21,7 +21,7 @@ pipeline {
   stage('Dev satge'){
 	  when { expression {env.ENV=='dev'}}
     steps{echo 'devvvvvvvvvvvv'}}
-   stage('docker build'){
+  stage('docker build'){
 	   steps{sh 'docker build .'}
    }
    }

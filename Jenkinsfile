@@ -21,7 +21,10 @@ pipeline {
   stage('Dev satge'){
 	  when { expression {env.ENV=='dev'}}
     steps{echo 'devvvvvvvvvvvv'}}
-  
+   stage('docker build'){
+	   steps{sh 'docker build .'}
+   }
+   }
   // stage('Create Docker Image and push it' ){
   // steps{ sh 'docker login -u -p'
   //    sh ' docker build .'

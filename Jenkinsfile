@@ -1,6 +1,6 @@
 pipeline {
  agent any
- tools{}
+ // tools{}
  environment{
  ENV = 'prod'}
   
@@ -16,9 +16,10 @@ pipeline {
  
   stage('Prod Stage using when'){
 	when { expression {env.ENV=='prod'}}
-	  steps{echo 'prodddddddd'}
+	  steps{echo 'prodddddddd'}}
   
-    when { expression {env.ENV=='dev'}}
+  stage('Dev satge'){
+	  when { expression {env.ENV=='dev'}}
     steps{echo 'devvvvvvvvvvvv'}}
   
   // stage('Create Docker Image and push it' ){

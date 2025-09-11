@@ -11,7 +11,7 @@ pipeline {
   echo {env.ENV} 
   }}
   stage(' Build using Maven'){
-  steps{sh 'mvn clean compile'
+  steps{sh 'mvn clean package'
   }}
  
   stage('Prod Stage using when'){

@@ -8,7 +8,7 @@ pipeline {
   stage('Git Checkout'){
   steps{
   checkout scm
-  echo '{$env.ENV}' 
+  echo {env.ENV} 
   }}
   stage(' Build using Maven'){
   steps{sh 'mvn clean compile'

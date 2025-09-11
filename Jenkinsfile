@@ -13,11 +13,13 @@ pipeline {
   stage(' Build using Maven'){
   steps{sh 'mvn clean compile'
   }}
-  when { expression {env.ENV=='prod'}}
-  stage('Prod Stage using when'){ steps{echo 'yes'}}
+ 
+  stage('Prod Stage using when'){
+	when { expression {env.ENV=='prod'}}
+	  steps{echo 'prodddddddd'}
   
-  when { expression {env.ENV=='dev'}}
-  stage('dev Stage using when'){ steps{echo 'yess'}}
+    when { expression {env.ENV=='dev'}}
+    steps{echo 'devvvvvvvvvvvv'}}
   
   // stage('Create Docker Image and push it' ){
   // steps{ sh 'docker login -u -p'

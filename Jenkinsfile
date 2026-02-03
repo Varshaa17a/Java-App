@@ -7,6 +7,7 @@ pipeline{
         MAVEN_OPTS = "-Dmaven.test.skip=true"
         SONAR_SERVER = ""
         SONAR_PROJECT = ""
+        EMAIL_TO = "vps17aug@gmail.com"
 
     }
 
@@ -78,6 +79,42 @@ pipeline{
         }
 
 
+    }
+    post {
+        success {
+            emailext(
+                subject: "SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
+                body: """
+                Deployment SUCCESSFUL
+
+                App   : ${APP_NAME}
+                Env   : ${env.ENV}
+                Image : ${DOCKER_IMAGE}:${IMAGE_TAG}
+                URL   : ${BUILD_URL}
+                """,
+                to: "${EMAIL_TO}"
+            )
+        }
+
+        failure {
+            emailext(
+                subject: "FAILED: ${JOB_NAME} #${BUILD_NUMBER}",
+                body: """
+                Deployment FAILED
+
+                App : ${APP_NAME}
+                Env : ${env.ENV}
+
+                Check Jenkins logs:
+                ${BUILD_URL}
+                """,
+                to: "${EMAIL_TO}"
+            )
+        }
+
+        always {
+            cleanWs()
+        }
     }
 
 }

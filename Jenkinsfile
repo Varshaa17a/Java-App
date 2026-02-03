@@ -118,6 +118,7 @@ pipeline {
         }
 
         always {
+            echo "clean ws here.. ok..........."
             // cleanWs()
         }
     }

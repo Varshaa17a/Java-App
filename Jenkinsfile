@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent any 
 
     environments{
         docker_image = "vsasdfghjk/java_app"

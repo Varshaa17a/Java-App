@@ -89,30 +89,32 @@ pipeline {
 
     post {
         success {
-            emailext(
-                subject: "SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
-                body: """
-Deployment SUCCESSFUL
+            echo "success!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+//             emailext(
+//                 subject: "SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
+//                 body: """
+// Deployment SUCCESSFUL
 
-Env   : ${env.ENV}
-Image : ${DOCKER_IMAGE}:${IMAGE_TAG}
-URL   : ${BUILD_URL}
-""",
-                to: "${EMAIL_TO}"
-            )
+// Env   : ${env.ENV}
+// Image : ${DOCKER_IMAGE}:${IMAGE_TAG}
+// URL   : ${BUILD_URL}
+// """,
+//                 to: "${EMAIL_TO}"
+//             )
         }
 
         failure {
-            emailext(
-                subject: "FAILED: ${JOB_NAME} #${BUILD_NUMBER}",
-                body: """
-Deployment FAILED
+            echo "failure!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+//             emailext(
+//                 subject: "FAILED: ${JOB_NAME} #${BUILD_NUMBER}",
+//                 body: """
+// Deployment FAILED
 
-Env : ${env.ENV}
-URL : ${BUILD_URL}
-""",
-                to: "${EMAIL_TO}"
-            )
+// Env : ${env.ENV}
+// URL : ${BUILD_URL}
+// """,
+//                 to: "${EMAIL_TO}"
+//             )
         }
 
         always {

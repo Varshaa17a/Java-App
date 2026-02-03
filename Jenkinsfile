@@ -38,7 +38,7 @@ pipeline{
                 waitForQualityGate abortPipeline: true
             }
             }
-
+        }
         stage("Identify environment"){
             steps{
                 if (env.BRANCH_NAME == 'dev'){
@@ -74,8 +74,6 @@ pipeline{
         }
 
 
-        }
-
-        }
     }
+
 }

@@ -28,7 +28,7 @@ pipeline {
 
         stage("Compile Code") {
             steps {
-                sh "mvn clean compile ${MAVEN_OPTS}"
+                sh "mvn clean package ${MAVEN_OPTS}"
             }
         }
 

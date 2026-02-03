@@ -23,18 +23,18 @@ pipeline{
 
         stage("compile code"){
             steps{
-            mvn clean compile $MAVEN_OPTS
+            sh "mvn clean compile $MAVEN_OPTS"
             }
         }
         stage("sonarqube scan"){
             steps{
             withSonarQubeEnv("${SONAR_SERVER}"){
-                sh " mvn sonar:sonar -Dsonar.projectkey = ${SONAR_PROJECT}"
+                sh "mvn sonar:sonar -Dsonar.projectkey = ${SONAR_PROJECT}"
             }}
-
+        }
         stage("Quality gate"){
             steps{
-            timeout(time = 1, units = MINUTES){
+            timeout(time: 1, units: MINUTES){
                 waitForQualityGate abortPipeline: true
             }
             }

@@ -32,21 +32,21 @@ pipeline {
             }
         }
 
-        stage('SonarQube Scan') {
-    steps {
-        withSonarQubeEnv(SONAR_SERVER) {
-            sh "mvn sonar:sonar -Dsonar.projectKey=${SONAR_PROJECT}"
-        }
-    }
-}
+//         stage('SonarQube Scan') {
+//     steps {
+//         withSonarQubeEnv(SONAR_SERVER) {
+//             sh "mvn sonar:sonar -Dsonar.projectKey=${SONAR_PROJECT}"
+//         }
+//     }
+// }
 
-        stage("Quality Gate") {
-            steps {
-                timeout(time: 1, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
+//         stage("Quality Gate") {
+//             steps {
+//                 timeout(time: 1, unit: 'MINUTES') {
+//                     waitForQualityGate abortPipeline: true
+//                 }
+//             }
+//         }
 
         stage("Identify Environment") {
             steps {

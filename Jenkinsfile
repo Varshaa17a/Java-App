@@ -23,7 +23,7 @@ pipeline{
 
         stage("compile code"){
             steps{
-            mvn clean compile {$MAVEN_OPTS}
+            mvn clean compile $MAVEN_OPTS
             }
         }
         stage("sonarqube scan"){

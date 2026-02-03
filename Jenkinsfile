@@ -8,7 +8,7 @@ pipeline {
         DOCKER_IMAGE  = "vsasdfghjk/java_app"
         GITOPS_REPO   = ""
         MAVEN_OPTS    = "-Dmaven.test.skip=true"
-        SONAR_SERVER  = ""
+        SONAR_SERVER = "sonarqube-server"
         SONAR_PROJECT = ""
         EMAIL_TO      = "vps17aug@gmail.com"
     }
@@ -32,13 +32,13 @@ pipeline {
             }
         }
 
-        stage("SonarQube Scan") {
-            steps {
-                withSonarQubeEnv("${SONAR_SERVER}") {
-                    sh "mvn sonar:sonar -Dsonar.projectKey=${SONAR_PROJECT}"
-                }
-            }
+        stage('SonarQube Scan') {
+    steps {
+        withSonarQubeEnv(SONAR_SERVER) {
+            sh "mvn sonar:sonar -Dsonar.projectKey=${SONAR_PROJECT}"
         }
+    }
+}
 
         stage("Quality Gate") {
             steps {

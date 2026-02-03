@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools{
         maven 'maven'
+        sonar 'sonar'
     }
 
     environment {

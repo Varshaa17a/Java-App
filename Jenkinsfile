@@ -87,7 +87,6 @@ pipeline{
                 body: """
                 Deployment SUCCESSFUL
 
-                App   : ${APP_NAME}
                 Env   : ${env.ENV}
                 Image : ${DOCKER_IMAGE}:${IMAGE_TAG}
                 URL   : ${BUILD_URL}
@@ -102,7 +101,6 @@ pipeline{
                 body: """
                 Deployment FAILED
 
-                App : ${APP_NAME}
                 Env : ${env.ENV}
 
                 Check Jenkins logs:

@@ -1,7 +1,7 @@
 pipeline{
     agent any 
 
-    environments{
+    environment{
         docker_image = "vsasdfghjk/java_app"
         gitops_repo = ""
         MAVEN_OPTS = "-Dmaven.test.skip=true"

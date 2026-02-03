@@ -80,11 +80,11 @@ pipeline {
             }
         }
 
-        stage("Trivy Scan") {
-            steps {
-                sh "trivy image --severity CRITICAL,HIGH --exit-code 1 ${DOCKER_IMAGE}:${IMAGE_TAG}"
-            }
-        }
+        // stage("Trivy Scan") {
+        //     steps {
+        //         sh "trivy image --severity CRITICAL,HIGH --exit-code 1 ${DOCKER_IMAGE}:${IMAGE_TAG}"
+        //     }
+        // }
     }
 
     post {

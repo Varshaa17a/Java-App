@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools{
+        maven 'maven'
+    }
 
     environment {
         DOCKER_IMAGE  = "vsasdfghjk/java_app"

@@ -41,22 +41,26 @@ pipeline{
         }
         stage("Identify environment"){
             steps{
+                script{
                 if (env.BRANCH_NAME == 'dev'){
                  env.ENV = 'dev' 
                 }
                 else if (env.BRANCH_NAME == 'main'){
                     env.ENV = 'prod'
                 }
+                }
             }
 
         }
          stage("generate tag for image"){
             steps{
+                script{
                 if (env.ENV == 'dev'){
                  env.image_tag =  ${BUILD_NUMBER}-dev 
                 }
                 else if (env.ENV == 'prod'){
                  env.image_tag =  ${BUILD_NUMBER} 
+                }
                 }
 
             }

@@ -8,10 +8,6 @@ pipeline {
             }
         }
 
-        stage("Compile Code") {
-            steps {
-                sh "mvn clean package"
-            }
-        }
+        
 }
 }
